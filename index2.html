@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Geog 483 Leaflet Tutorial</title>
+	<!-- This tutorial is based on the official Leaflet quickstart: http://leafletjs.com/examples/quick-start/ -->
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+	
+</head>
+<body>
+
+<style>
+    	body { margin:0; padding:0; }
+    	#mapid { position:absolute; top:50px; bottom:50px; left:50px; width:850px; height:750px;}
+</style>
+
+<div id="mapid"</div>
+<script>
+	<!-- Sets where the map is located -->
+	var mymap = L.map('mapid').setView([43.469, -80.532], 15);
+	
+	<!-- Sets the basemap for the map -->
+	L.tileLayer("http://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
+	}).addTo(mymap);
+	
+	<!-- Original Marker for the Code Provided in the .zip file for this assignment -->
+	L.marker([43.466, -80.53]).addTo(mymap)
+		.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+	
+	
+	<!-- Popup for the University of Waterloo -->
+	<!-- Specifies Marker Location -->
+	var markerLocation = new L.LatLng(43.46973, -80.5423);
+	
+	<!-- Creates a variable containing the UW logo -->
+	var uwLogoPopup = L.icon({
+		iconUrl: 'https://upload.wikimedia.org/wikipedia/en/0/03/Uwaterloo_seal.gif', 
+		iconSize: [35, 35],
+		});
+	
+	<!-- Dana Porter Library U Waterloo Pop-up -->
+	L.marker(markerLocation, {icon: uwLogoPopup}).addTo(mymap)
+		.bindPopup("<br> <a href = 'https://uwaterloo.ca/'>University of Waterloo</a></br> <img src='https://upload.wikimedia.org/wikipedia/commons/1/18/Dana_Porter_Arts_Library_in_2009.jpg' width = 150 height = 150/>");
+	
+		
+	<!-- Popup for the City of Waterloo -->
+	<!-- Specifies Marker Location -->
+	var markerLocation = new L.LatLng(43.46309, -80.5201);
+	
+	<!-- Creates a variable containing the UW logo -->
+	var cityOfWaterloo = L.icon({
+		iconUrl: 'https://upload.wikimedia.org/wikipedia/en/2/21/Waterloo%2C_Ontario_%28typing%29.svg', 
+		iconSize: [45, 55],
+		});
+
+	<!-- City of Waterloo Pop-up -->
+	L.marker(markerLocation, {icon: cityOfWaterloo}).addTo(mymap)
+		.bindPopup("<br> <a href = 'http://www.waterloo.ca/'>City of Waterloo</a></br> <img src='https://upload.wikimedia.org/wikipedia/commons/7/79/Waterloo_Ontario_City_Hall_Pano.jpg' width = 150 height = 150/>");
+	
+		
+	<!-- Popup for Conestoga College Waterloo Campus -->
+	<!-- Specifies Marker Location -->
+	var markerLocation = new L.LatLng(43.479070, -80.518055);
+	
+	<!-- Conestoga College Waterloo Campus Pop-up -->
+	L.marker(markerLocation).addTo(mymap)
+		.bindPopup("<br> <a href = 'http://www.conestogac.on.ca/'>Conestoga College</a></br> <img src='https://upload.wikimedia.org/wikipedia/commons/0/06/Conestoga_College_Doon_Campus_Highway_Sign_Clock.JPG' width = 150 height = 150/>");
+	
+	
+	<!-- Popup for Waterloo Collegiate Institute -->
+	<!-- Specifies Marker Location -->
+	var markerLocation = new L.LatLng(43.4792, -80.5300);
+
+	<!-- Waterloo Collegiate Institute Pop-up -->
+	L.marker(markerLocation).addTo(mymap)
+		.bindPopup("<br> <a href = 'https://wci.wrdsb.ca/'>Waterloo Collegiate Institute</a></br> <img src='https://upload.wikimedia.org/wikipedia/commons/9/96/Waterloo_Collegiate_Institute.jpg' width = 150 height = 150/>");
+</script>
+
+</body>
+</html>
